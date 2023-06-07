@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <label v-bind:title="titulo">hola mundo</label>
+        <hr>
+        <button v-on:click="mostrarImagen('js.png')">imagen js</button>
+        <button v-on:click="mostrarImagen('kayolica_pandoru.png')">imagen kayolica</button>
+        <hr>
+        <img v-bind:src="imagen">
+    
+    </div>
+    
+    
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const atributos = {
+            data(){
+                return{
+                    titulo: 'titulo dinamico',
+                    imagen: 'kayolica_pandoru.png'
+                }
+            },
+            methods: {
+                mostrarImagen(ruta){
+                    this.imagen=ruta
+                }
+            }
+
+        }
+        let mountedApp = Vue.createApp(atributos).mount('#app')
+    </script>
+</body>
+</html>
