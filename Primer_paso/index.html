@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+       hola {{nombre}} año {{año}} del mes {{meses[1]}}
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //data, methods, props, mounted, created, computed, watch, destroyed
+        const holaMundo ={
+            data(){
+                return{
+                    //datos
+                    nombre: 'serch',
+                    año: '2022',
+                    meses: ['enero', 'febrero','marzo']
+                }
+            }
+        }
+       let mountedApp = Vue.createApp(holaMundo).mount('#app')
+    </script>
+
+</body>
+</html>
