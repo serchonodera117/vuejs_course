@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="fruta in frutas_id" v-bind:key="fruta">
+             {{fruta.id}}  -  {{fruta.nombre}}
+                <ul>
+                    <li v-for="pais in fruta.paisesOrigen" v-bind:key="pais">
+                        id: {{pais.id_pais}} - pais: {{pais.pais}} 
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <hr>
+
+        <ul>
+            <li v-for="l in letras" >
+                {{l}}
+            </li>
+        </ul>
+    </div>
+
+   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+    <script>
+        const App={
+            data(){
+                return {
+                    frutas: ['manzana', 'pera', 'uva'],
+                    letras:'abcdefghijklmopqrstvwxyz',
+                    frutas_id: [
+                        {id:1,nombre: 'manzana',
+                            paisesOrigen: [
+                                {id_pais:1,pais:'el Salvador'},
+                                {id_pais:2,pais:'Mexico'},
+                                {id_pais:3,pais:'Honduras'},
+                            ]
+                        },
+                        {id:2,nombre: 'pera',
+                            paisesOrigen: [
+                                {id_pais:1,pais:'el Salvador'},
+                                {id_pais:2,pais:'Nicarahua'},
+                                {id_pais:3,pais:'Chile'},
+                            ]
+                        },
+                        {id:3,nombre: 'uva',
+                            paisesOrigen: [
+                                {id_pais:1,pais:'el Salvador'},
+                                {id_pais:2,pais:'Mexico'},
+                                {id_pais:3,pais:'Chile'},
+                            ]
+                        },
+                        {id:4,nombre: 'sandía',
+                            paisesOrigen: [
+                                {id_pais:1,pais: null},
+                                {id_pais:2,pais:'Mexico'},
+                                {id_pais:3,pais:'Chile'},
+                            ]
+                        }
+                    ]
+                }
+            },
+
+            methods: {
+
+            }
+
+        }
+        let mountedApp= Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

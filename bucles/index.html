@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--v-for-->
+    <div id="app">
+        <ul>
+            <li v-for="fruta in frutas" v-bind:key="fruta">
+                {{fruta}}
+            </li>
+        </ul>
+        <hr>
+
+        <ul>
+            <li v-for="fruta in frutas_id" v-bind:key="fruta">
+                id: {{fruta.id}}
+                nombre: {{fruta.nombre}}
+            </li>
+        </ul>
+
+<hr>
+        <select v-model="id_fruta">
+            <option v-for="(fruta, index) in frutas_id" v-bind:key="fruta" v-bind:value="fruta.id">
+              indice {{index}}:{{fruta.id}}  nombre: {{fruta.nombre}}
+            </option>
+        </select>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const myApp={
+            data(){
+                return{
+                    frutas: ['manzana', 'pera', 'uva'],
+                    frutas_id: [
+                        {id:1,nombre: 'manzana'},
+                        {id:2,nombre: 'pera'},
+                        {id:3,nombre: 'uva'},
+                        {id:4,nombre: 'sandía'}
+                    ],
+                    id_fruta: 2
+                }
+            }
+        }
+        let App = Vue.createApp(myApp).mount('#app')
+    </script>
+</body>
+</html>
