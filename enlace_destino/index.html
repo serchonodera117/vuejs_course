@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+    <title>Document</title>
+
+
+    <style>
+        .rounded{
+            border-radius: 50px;
+            height: 100px;
+            width: 100px;
+        }
+        .square{
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="div-app">
+        <div class="container" style="padding-top: 50px">
+            <div class="teal" v-bind:class="{rounded, square}"></div>
+            <br>
+            <button v-on:click="rounded = !rounded; square = !square">cambiar</button>
+        <hr>
+           <div class="teal" v-bind:class="{rounded: i>5}"></div>
+                <br>
+                <button v-on:click="rounded = !rounded; square = !square">cambiar</button> 
+
+                <br>
+           <div class="teal" v-bind:class="myClases"></div>
+
+        </div>
+    </div>
+
+    
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //data, methods, props, mounted, created, watch, destroyed
+        const myApp={
+            data(){
+                return{
+                    rounded: true,
+                    square: false,
+                    i: 6,
+
+                    myClases: {
+                      rounded: true,
+                      square: false,
+                    }
+                }
+            }
+        }
+        let mountedApp=Vue.createApp(myApp).mount('#div-app')
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        
+
+</head>
+<body>
+    <div id="app">
+       <div class="container">
+            <h3>{{contador}}</h3>
+            <button class="btn indigo darkness-4" v-on:click="contador++">haz clic</button>
+            <hr>
+        </div>
+        <div class="container">
+            <button class="btn indigo darkness-4" v-on:mouseover="contador++">Hazme un hover</button>
+            <hr>
+        </div>
+        <div class="container">
+            estado: {{status}}<br>
+            <input type="button class=" class="btn indigo darkness-4" v-on:mouseover="status = true" v-on:mouseout="status = false"value="hover para mostrar">
+            <br>
+            <img v-if="status" src="x.png">
+            <img v-show="status" src="x.png">
+            <hr>
+
+            <select class="browser-default" name="myselect" id="x" v-on:change="cambiarImagen($event)">
+                <option value="x.PNG">shinji</option>
+                <option value="Gisselle.png">gisselle</option>
+                <option value="dokis.png">dokis</option>
+            </select>
+            <image  v-bind:src="imageSRC" style="object-fit:contain; height: 150px; width: 150px; background-color: gray"></image>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const myApp = {
+            data(){
+                return{
+                    contador:0,
+                    status: false,
+                    imageSRC:'x.png',
+                }
+            },
+            methods:{
+                cambiarImagen(event){
+                    this.imageSRC= event.target.value
+                }
+            }
+        }
+        let buildedApp = Vue.createApp(myApp).mount('#app');
+    </script>
+</body>
+</html>

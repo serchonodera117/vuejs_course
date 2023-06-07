@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <label>escribe tu nombre</label>
+        <input type="text" v-model="nombre"></input>
+        <hr>
+        <h5>hola {{nombre}}</h5>
+        <hr>
+        <select name="x" id="x" v-model="fruta">
+            <option value="manzana">manzana</option>
+            <option value="pera">pera</option>
+            <option value="uva">uva</option>
+            <option value="naranja">naranja</option>
+        </select>
+
+        fruta seleccionada = {{fruta}}
+        <hr>
+        <input  type="checkbox" v-on-check="refresh()" v-model="activo">
+        checkbox es: {{x}}
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //data, methods, props, mounted, created, watch, destroyed
+        const app = {
+            data(){
+                return{
+                    nombre:'',
+                    fruta: '',
+                    activo:false,
+                    x: ''
+                }
+            },
+               
+        
+            methods: {
+                refresh(){
+                    if(this.activo) this.x='activado'
+                 else this.x='desactivado'
+                }
+            }
+
+        }
+        let mountedApp= Vue.createApp(app).mount('#app')
+    </script>
+</body>
+</html>

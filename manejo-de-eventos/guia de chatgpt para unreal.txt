@@ -1,0 +1,18 @@
+Introducción a Unreal Engine
+Familiarízate con los conceptos básicos de los motores de juego y las herramientas de desarrollo de videojuegos. Investiga sobre las funciones principales de Unreal Engine y cómo se compara con otros motores de juego populares.
+Instala Unreal Engine en tu computadora. Hay muchos recursos en línea para ayudarte con la instalación y configuración de Unreal Engine.
+Aprende a utilizar el editor de Unreal Engine. Investiga cómo crear un proyecto y cómo navegar en el editor de Unreal Engine.
+Aprendiendo la interfaz de Unreal Engine
+Aprende los conceptos básicos de la interfaz de Unreal Engine. Investiga sobre los diferentes paneles y herramientas disponibles en el editor de Unreal Engine.
+Practica con los diferentes tipos de objetos disponibles en Unreal Engine, como terrenos, objetos estáticos, objetos dinámicos y personajes.
+Aprende a importar modelos 3D, texturas y otros assets en Unreal Engine.
+Dominando el sistema de física de Unreal Engine
+Aprende los conceptos básicos de la física en Unreal Engine. Investiga cómo se utilizan los cuerpos rígidos, la gravedad, las colisiones y otras funciones físicas en Unreal Engine.
+Practica la creación de diferentes tipos de física en Unreal Engine, como la creación de objetos dinámicos y la simulación de la física del agua.
+Investiga cómo utilizar el sistema de partículas de Unreal Engine para crear efectos físicos como explosiones, fuego y humo.
+Creando su primer videojuego
+Define el tipo de videojuego que deseas crear. Investiga cómo se estructuran los videojuegos y cómo se puede crear una historia y un mundo para el jugador.
+Aprende cómo utilizar los blueprints de Unreal Engine para crear eventos y acciones en tu videojuego.
+Investiga cómo se pueden crear diferentes sistemas de juego, como sistemas de combate, sistemas de progresión y sistemas de inventario.
+Practica la creación de niveles y misiones en Unreal Engine para crear una experiencia de juego completa.
+Para cada sección, se pueden encontrar cursos en línea, tutoriales y recursos en línea que pueden ayudarlo a aprender cada uno de los conceptos mencionados anteriormente. Además, es importante practicar continuamente para mejorar sus habilidades. ¡Buena suerte en tu viaje de aprendizaje en Unreal Engine!

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+                <table class="table stripped bordered">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Usuario</th>
+                            <th>Correo</th>
+                            <th>Direccion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="usuario in usuarios" v-bind:key="usuario">
+                            <td>{{usuario.name}}</td>
+                            <td>{{usuario.username}}</td>
+                            <td>{{usuario.email}}</td>
+                            <td>{{usuario.address.street}}  {{usuario.address.suite}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+        <br><br><br><br><br>
+        
+        <div class="container">
+            <ul>
+                <li v-for="usuario in usuarios" v-bind:key="usuario">
+                    <hr>
+                    nombre: {{usuario.name}} <br>
+                     username: {{usuario.username}}<br>
+                     email: {{usuario.email}}<br>
+                     <hr>
+                     -  Calle: {{usuario.address.street}}<br>
+                     -  Numero: {{usuario.address.suite}}<br>
+                     -  Ciudad: {{usuario.address.city}}<br>
+                     -  Codigo Postal: {{usuario.address.zipcode}}<br>
+                     <hr>
+                     Coordenadas<br>
+                     -  latitud: {{usuario.address.geo.lat}}<br>
+                     -  longitud: {{usuario.address.geo.lng}}<hr><br><br><br>
+                </li>
+            </ul> 
+        </div>
+    </div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            data(){
+                return{
+                     usuarios: []
+                }
+            },
+            methods:{
+              getUsusarios(){
+                  let url = 'https://jsonplaceholder.typicode.com/users'
+                  fetch(url)
+                  .then(response => response.json())
+                  .then(data => {
+                     //console.log(data)
+                      this.usuarios = data
+                      console.log(this.usuarios)
+                    });
+                }
+            },
+            mounted(){
+                this.getUsusarios();
+            }
+        }
+        let mountedApp = Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

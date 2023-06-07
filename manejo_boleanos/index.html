@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <form method="post">
+            <input type="text" v-bind:disabled="txtDisabled">
+            <input type="checkbox" v-bind:checked="isChecked == 5">
+            <input type="text" v-bind:required="isrequired">
+            <button type="submit">Enviar</button>
+        </form>
+        <hr><br><br>
+
+        <select v-model="idfruta">
+            <option v-for="fruta in frutas" v-bind:key="fruta" v-bind:value="fruta.id">
+                id: {{fruta.id}} nombre: {{fruta.name}}
+            </option>
+        </select>
+
+        <hr>
+        <select >
+            <option v-for="fruta in frutas" v-bind:key="fruta" v-bind:selected="fruta.selected">
+                id: {{fruta.id}} nombre: {{fruta.name}}
+            </option>
+        </select>
+    </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>  
+    <script>
+        const App={
+            data(){
+                return{
+                    txtDisabled:true,
+                    isChecked: 5,
+                    isrequired: false,
+                    frutas: [
+                        {id:1,name:'manzana', selected: true},
+                        {id:2,name:'pera', selected: false},
+                        {id:3,name:'uva', selected: false},
+                        {id:4,name:'sandía', selected: false},
+                    ],
+
+                    idfruta:3,
+                }
+            }
+        }
+        let myApp = Vue.createApp(App).mount("#app")
+    </script>
+</body>
+</html>

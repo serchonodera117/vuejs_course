@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div-app">
+        <div v-bind:style="[myObjeto, myObjeto2]">
+            hola mundo
+        </div>
+    </div>
+
+    
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //data, methods, props, mounted, created, watch, destroyed
+        const myApp={
+            data(){
+                return{
+                    myObjeto:{
+                        'font-size': '16px', 
+                        'color': 'white', 
+                        'background-color': 'green',
+                        'height': '100px',
+                        'width':  '100px',
+                    },
+                    myObjeto2:{
+                        'border': 'dashed 5px black'
+                    }
+                }
+            }
+        }
+        let mountedApp=Vue.createApp(myApp).mount('#div-app')
+    </script>
+</body>
+</html>

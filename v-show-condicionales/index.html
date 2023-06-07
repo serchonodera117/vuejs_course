@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <a href="!#" v-if="esAdmin">administracion</a>
+        <img v-if="mostrarImagen" src="chow.png" height="200" width="200">
+        <img v-show="mostrarImagen" src="ywy.jpg" height="200" width="200">
+    
+    </div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const  myApp = {
+            data(){
+                return {
+                    mostrarImagen:true,
+                    esAdmin: true,
+                }
+            }
+        }
+        let buildedApp = Vue.createApp(myApp).mount('#app');
+    </script>
+</body>
+</html>

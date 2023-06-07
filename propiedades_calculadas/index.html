@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+   
+    <title>Document</title>
+</head>
+<body>
+    <div id="div-app">
+        <div class="container">
+            <input type="text" v-model="n1">
+            <input type="text" v-model="n2">
+            <h5>la suma es: {{resultado}}</h5>
+            <hr><hr><br><br>
+<!---------------------------------------------------------------------->
+            <label for="fruta">escriba una fruta</label>
+            <input  id=fruta type="text" v-model="fruta">
+            <button id="x" v-on:click="agregar">Agregar fruta</button>
+
+            <label>ha agregado un total de {{total}} frutas</label>
+            <ul>
+                <li v-for="f in frutas" v-bind:key="f" id=f>
+                    {{f}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //data, methods, props, mounted, created, watch, destroyed
+        const myApp={
+            data(){
+                return{
+                    n1:0,
+                    n2:0,
+                    frutas:[],
+                    fruta:''
+                }
+            },
+            computed:{
+                resultado: function()
+                {
+                    return parseFloat(this.n1) + parseFloat(this.n2);
+                },
+                total: function(){
+                   return this.frutas.length
+                }
+            },
+            methods:{
+                agregar(){
+                    this.frutas.push(this.fruta);
+                    this.fruta='';
+                }
+            }
+        }
+        let mountedApp=Vue.createApp(myApp).mount('#div-app')
+    </script>
+</body>
+</html>

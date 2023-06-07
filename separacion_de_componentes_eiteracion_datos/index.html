@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="div-app">
+        <menu-component ref="menuComponent" v-bind:usuario="usuario"></menu-component>
+        <div class="container">
+                <div class="row">
+                    <div class="col m6">
+                        <label>Usuario</label>
+                        <input type="text" id="x" v-model="usuario">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m6">
+                        <label>Correo</label>
+                        <input type="text" id="x" v-model="correo">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m6">
+                        <label>Clave</label>
+                        <input type="text" id="x" v-model="clave">
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="button" class="indigo darken-4" v-on:click="llamadaAlHijo">Registrarse</button>
+                </div>
+
+            </div>
+    </div>
+
+    
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="main.js"></script>
+<script src="menucomponent.js"></script>
+<script>
+    const mountedApp = theApp.mount('#div-app')
+</script>
+</body>
+</html>
