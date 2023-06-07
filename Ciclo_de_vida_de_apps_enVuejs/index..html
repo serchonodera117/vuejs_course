@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="div-app">
+            <h5 id="contenedor">{{nombre}}</h5>
+    </div>
+
+    
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //data, methods, props, mounted, created, watch, destroyed
+        const myApp={
+            data(){
+                return{
+                    nombre: 'serch'
+                }
+            },
+            beforeCreate(){
+                console.log('Antes de ser creado, nombre contiene:', this.nombre);
+            },
+            created(){
+                console.log('ha sido creado el nombre', this.nombre);
+            },
+            beforeMount(){
+                console.log('Antes de ser montado, nombre contiene', this.nombre);
+            },
+            mounted(){//aqui ya existen las etiquetas html
+                console.log('ha sido montado el nombre', this.nombre);
+            },
+            beforeUpdate(){
+                console.log('Valor Actual:', document.querySelector('#contenedor').innerHTML);
+            },
+            updated(){
+                console.log('Valor Nuevo:', document.querySelector('#'))
+            },
+            beforeUnmount(){
+                console.log('está apunto de desconextarse', this.nombre);
+            },
+            unmounted(){
+                console.log('Ha sido desconectado, nombre contiene', this.nombre)
+            }
+        }
+        let mountedApp=Vue.createApp(myApp).mount('#div-app')
+    </script>
+</body>
+</html>
