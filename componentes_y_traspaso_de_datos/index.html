@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="div-app">
+        <div class="container">
+            <post-template v-for="post in posts" v-bind:post="post"></post-template>
+        </div>
+    </div>
+
+    
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //data, methods, props, mounted, created, watch, destroyed
+        const myApp={
+            data(){
+                return{
+                    nveces:5,
+                    posts: [],
+
+                }
+            },
+            created(){
+                let url = 'https://jsonplaceholder.typicode.com/posts'
+                fetch(url)
+                .then(res => res.json())
+                .then(data=>{
+                    this.posts=data
+                    console.log(this.posts)
+                })
+            }
+        }
+        let App=Vue.createApp(myApp)
+        App.component('post-template', {
+            template:`<div class="card-panel teal white-text">
+                        <h5>{{post.id}}._ {{post.title}}</h5>
+                         <p>{{post.body}}</p>
+                       </div>`,
+        
+            props:{
+                     post: Object
+                },
+            })
+        let mountedAPP=App.mount('#div-app')
+    </script>
+</body>
+</html>
